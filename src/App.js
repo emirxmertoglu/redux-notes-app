@@ -1,10 +1,18 @@
 import "./styles.css";
+import { useSelector } from "react-redux";
 
 export default function App() {
+  const notes = useSelector((state) => state.notes.notes);
+
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <ul>
+        {notes.map((note) => (
+          <li key={note.id} style={{ backgroundColor: note.color }}>
+            {note.description}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
