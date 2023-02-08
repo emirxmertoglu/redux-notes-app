@@ -3,7 +3,7 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 const notesSlice = createSlice({
   name: "notes",
   initialState: {
-    notes: [
+    list: [
       {
         id: nanoid(),
         description: "Note 1",

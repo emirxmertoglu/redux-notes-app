@@ -1,11 +1,13 @@
-import "./styles.css";
 import { useSelector } from "react-redux";
+import Container from "./components/Container";
+import Header from "./components/Header";
 
 export default function App() {
-  const notes = useSelector((state) => state.notes.notes);
+  const notes = useSelector((state) => state.notes.list);
 
   return (
-    <div className="App">
+    <Container>
+      <Header />
       <ul>
         {notes.map((note) => (
           <li key={note.id} style={{ backgroundColor: note.color }}>
@@ -13,6 +15,6 @@ export default function App() {
           </li>
         ))}
       </ul>
-    </div>
+    </Container>
   );
 }
