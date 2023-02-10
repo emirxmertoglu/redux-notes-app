@@ -8,14 +8,18 @@ export default function NoteList() {
 
   return (
     <ul className={styles.wrapper}>
-      {notes.map((note) => (
-        <Note
-          key={note.id}
-          id={note.id}
-          description={note.description}
-          backgroundColor={note.color}
-        />
-      ))}
+      {notes.length > 0 ? (
+        notes.map((note) => (
+          <Note
+            key={note.id}
+            id={note.id}
+            description={note.description}
+            backgroundColor={note.color}
+          />
+        ))
+      ) : (
+        <li>There is no note here.</li>
+      )}
     </ul>
   );
 }

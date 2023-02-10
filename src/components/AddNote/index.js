@@ -11,6 +11,7 @@ export default function AddNote() {
   const submitNote = (e) => {
     e.preventDefault();
     dispatch(addNote({ description }));
+    setDescription("");
   };
 
   return (
@@ -19,6 +20,7 @@ export default function AddNote() {
         placeholder="Enter your note here..."
         className={styles.enterNote}
         onChange={(e) => setDescription(e.target.value)}
+        value={description}
       />
       <div className={styles.sub}>
         <Colors />

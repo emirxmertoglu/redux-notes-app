@@ -1,28 +1,5 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
-const mockData = [
-  {
-    id: nanoid(),
-    description: "Test note 1",
-    color: "#3F0071",
-  },
-  {
-    id: nanoid(),
-    description: "Test note 2",
-    color: "#FB2576",
-  },
-  {
-    id: nanoid(),
-    description: "Test note 3",
-    color: "#332FD0",
-  },
-  {
-    id: nanoid(),
-    description: "Test note 4",
-    color: "#0002A1",
-  },
-];
-
 const colors = [
   {
     id: nanoid(),
@@ -49,7 +26,7 @@ const colors = [
 const notesSlice = createSlice({
   name: "notes",
   initialState: {
-    list: JSON.parse(localStorage.getItem("list")) || mockData,
+    list: JSON.parse(localStorage.getItem("list")) || [],
     colors,
     activeColor: "",
     search: "",
