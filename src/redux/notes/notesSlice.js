@@ -51,6 +51,11 @@ const notesSlice = createSlice({
     changeSearch: (state, action) => {
       state.search = action.payload.search;
     },
+    deleteNote: (state, action) => {
+      const newArr = state.list.filter((note) => note.id !== action.payload.id);
+      state.list = newArr;
+      localStorage.setItem("list", JSON.stringify(state.list));
+    },
   },
 });
 
@@ -59,7 +64,9 @@ export const getFilteredNotes = (state) => {
     return state.notes.list.filter(
       (note) =>
         note.color === state.notes.activeColor &&
-        note.description.toLowerCase().includes(state.notes.search)
+        note.description
+          .toLowerCase()
+          .includes(state.notes.search.toLowerCase())
     );
   } else if (state.notes.activeColor !== "") {
     return state.notes.list.filter(
@@ -67,13 +74,14 @@ export const getFilteredNotes = (state) => {
     );
   } else if (state.notes.search !== "") {
     return state.notes.list.filter((note) =>
-      note.description.toLowerCase().includes(state.notes.search)
+      note.description.toLowerCase().includes(state.notes.search.toLowerCase())
     );
   } else {
     return state.notes.list;
   }
 };
 
-export const { addNote, changeActiveColor, changeSearch } = notesSlice.actions;
+export const { addNote, changeActiveColor, changeSearch, deleteNote } =
+  notesSlice.actions;
 
 export default notesSlice.reducer;
