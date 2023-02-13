@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  gap: 5px;
+}
+
+.colorBox {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.colorBox.active {
+  position: relative;
+}
+
+.colorBox.active::after {
+  position: absolute;
+  content: "✓";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: 900;
+  color: white;
+}
+
+.reset {
+  background: conic-gradient(#3f0071, #fb2576, #332fd0, #0002a1);
+}

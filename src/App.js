@@ -1,18 +1,16 @@
-import "./styles.css";
-import { useSelector } from "react-redux";
+import Container from "./components/Container";
+import Header from "./components/Header";
+import Search from "./components/Search";
+import AddNote from "./components/AddNote";
+import NoteList from "./components/NoteList";
 
 export default function App() {
-  const notes = useSelector((state) => state.notes.notes);
-
   return (
-    <div className="App">
-      <ul>
-        {notes.map((note) => (
-          <li key={note.id} style={{ backgroundColor: note.color }}>
-            {note.description}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Container>
+      <Header />
+      <Search />
+      <AddNote />
+      <NoteList />
+    </Container>
   );
 }
