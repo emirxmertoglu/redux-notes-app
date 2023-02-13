@@ -17,8 +17,12 @@ export default function Colors() {
       {colors.map((color) => (
         <li
           key={color.id}
-          className={cx({ colorBox: true, active: color.isActive })}
-          style={{ backgroundColor: color.backgroundColor }}
+          className={cx({
+            colorBox: true,
+            active: color.isActive,
+            reset: color?.isReset,
+          })}
+          style={{ backgroundColor: color?.backgroundColor }}
           onClick={() => handleChangeColor(color.id)}
         ></li>
       ))}

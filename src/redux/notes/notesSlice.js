@@ -3,8 +3,14 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 const colors = [
   {
     id: nanoid(),
-    backgroundColor: "#3F0071",
+    backgroundColor: "",
+    isReset: true,
     isActive: true,
+  },
+  {
+    id: nanoid(),
+    backgroundColor: "#3F0071",
+    isActive: false,
   },
   {
     id: nanoid(),

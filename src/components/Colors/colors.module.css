@@ -24,3 +24,7 @@
   font-weight: 900;
   color: white;
 }
+
+.reset {
+  background: conic-gradient(#3f0071, #fb2576, #332fd0, #0002a1);
+}
